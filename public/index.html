@@ -1143,6 +1143,7 @@
 
         socket.on('playersUpdated', (players) => {
             gameState.players = players;
+            renderApp(); 
             const playersDiv = document.getElementById('playersList');
             if (playersDiv) {
                 playersDiv.innerHTML = `<h3>Players (${players.length})</h3>${players.map(p => `<div style="background:rgba(99,102,241,0.1);padding:0.75rem;margin:0.5rem 0;border-radius:0.75rem;">${p.name === gameState.playerName ? '👑' : '👤'} ${escapeHtml(p.name)} ${p.name === gameState.playerName ? '(You)' : ''}</div>`).join('')}`;
